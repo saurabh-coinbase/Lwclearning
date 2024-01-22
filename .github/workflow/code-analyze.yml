@@ -1,0 +1,19 @@
+name: Salesforce Code Quality
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  PMD:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - name: Setup Salesforce CLI
+        run: |
+          npm install --global @salesforce/cli
+          sf plugins install @salesforce/sfdx-scanner
+      - name: SF Code Analyzer - PMD
+        run: |
+          sf scanner:run --engine pmd --target force-app --pmdconfig=pmd/ruleset.xml --format table --severity-threshold 3
