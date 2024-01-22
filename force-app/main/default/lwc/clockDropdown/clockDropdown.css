@@ -1,0 +1,8 @@
+:host() {
+  --light-blue: #00d9fe;
+  --size-16: 16px;
+  --size-14: 14px;
+}
+.custom-label {
+  color: var(--light-blue);
+}

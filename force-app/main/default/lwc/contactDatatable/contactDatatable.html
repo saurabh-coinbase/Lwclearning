@@ -1,0 +1,17 @@
+<template>
+  <div>
+    <lightning-datatable
+      key-field="employeeId"
+      data={contacts}
+      columns={contactColumns}
+      hide-checkbox-column
+      show-row-number-column
+      onrowaction={handleRowAction}
+      sorted-by={sortedBy}
+      sorted-direction={sortedDirection}
+      default-sort-direction={defaultSortDirection}
+      onsort={handleSort}
+    >
+    </lightning-datatable>
+  </div>
+</template>
