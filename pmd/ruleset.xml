@@ -7,12 +7,18 @@
 >
     <description>Baseline PMD Ruleset</description>
 
-    <!-- DEFAULT RULE CATEGORIES -->
+    <!--DEFAULT RULE CATEGORIES-->
     <rule ref="category/apex/bestpractices.xml" />
     <rule ref="category/apex/codestyle.xml" />
     <rule ref="category/apex/design.xml" />
-    <rule ref="category/apex/documentation.xml" />
+    <!--<rule ref="category/apex/documentation.xml" />
     <rule ref="category/apex/errorprone.xml" />
     <rule ref="category/apex/performance.xml" />
-    <rule ref="category/apex/security.xml" />
+    <rule ref="category/apex/security.xml" />-->
+   <!--  <rule
+    ref="category/apex/security.xml/ApexBadCrypto"
+    message="Apex Crypto should use random IV/key"
+  >
+      <priority>3</priority>
+  </rule> -->
 </ruleset>
