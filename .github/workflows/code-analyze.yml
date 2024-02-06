@@ -24,7 +24,7 @@ jobs:
       - name: Store PMD results
         id: pmd
         run: |
-          pmd_results=$(sf scanner:run --engine pmd --target src --pmdconfig=pmd/apex-ruleset.xml --format json)
+          pmd_results=$(sf scanner:run --engine pmd --target src --pmdconfig=pmd/ruleset.xml --format json)
           echo "::set-output name=results::$pmd_results"
 
       - name: Add git blame to results
