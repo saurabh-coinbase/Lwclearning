@@ -20,3 +20,18 @@ jobs:
       - name: SF Code Analyzer - PMD
         run: |
           sf scanner:run --engine pmd --target force-app --pmdconfig=pmd/ruleset.xml --format table --severity-threshold 3
+
+      - name: Store PMD results
+        id: pmd
+        run: |
+          pmd_results=$(sf scanner:run --engine pmd --target src --pmdconfig=pmd/apex-ruleset.xml --format json)
+          echo "::set-output name=results::$pmd_results"
+
+      - name: Add git blame to results
+        run: |
+          results=$(echo "${{ steps.pmd.outputs.results }}")
+          git blame $(echo $results | jq -r '.files[] | .path')
+
+        # output modified results
+      - name: Output results
+        run: echo "${{ steps.pmd.outputs.results }}"
